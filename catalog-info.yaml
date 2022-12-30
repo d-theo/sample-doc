@@ -1,5 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
+relations:
+  - type: dependsOn
+    target:
+      kind: component
+      namespace: default
+      name: example-website
 metadata:
   name: SampleDocDemo
   annotations:
