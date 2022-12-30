@@ -1,11 +1,5 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
-relations:
-  - type: partOf
-    target:
-      kind: api
-      namespace: default
-      name: example-grpc-api
 metadata:
   name: SampleDocDemo
   annotations:
@@ -14,7 +8,6 @@ metadata:
   links:
     - url: https://d-theo.github.io/sample-doc/
       title: TSDOC
-  namespace: Typescript Community
   tags:
     - typescript
     - documentation
