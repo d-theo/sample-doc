@@ -6,5 +6,7 @@ site_author: MkDocs Team
 repo_url: https://github.com/mkdocs/mkdocs/
 edit_uri: blob/master/docs/
 
+docs_dir: documentation
+
 nav:
   - "Getting Started": "index.md"
