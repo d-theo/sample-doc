@@ -1,11 +1,11 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 relations:
-  - type: dependsOn
+  - type: partOf
     target:
-      kind: component
+      kind: api
       namespace: default
-      name: example-website
+      name: example-grpc-api
 metadata:
   name: SampleDocDemo
   annotations:
