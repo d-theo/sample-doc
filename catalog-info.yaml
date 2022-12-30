@@ -6,7 +6,7 @@ metadata:
     github.com/project-slug: d-theo/sample-doc
     backstage.io/techdocs-ref: dir:.
   links:
-    - url: https://github.com/d-theo/sample-doc/blob/main/tsdoc/index.html
+    - url: https://d-theo.github.io/sample-doc/
       title: TSDOC
 spec:
   type: other
