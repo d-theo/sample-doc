@@ -2,12 +2,12 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: SampleDocDemo
-  links:
-    - url: https://github.com/d-theo/sample-doc/blob/main/tsdoc/index.html
-      title: TSDOC
   annotations:
     github.com/project-slug: d-theo/sample-doc
     backstage.io/techdocs-ref: dir:.
+  links:
+    - url: https://github.com/d-theo/sample-doc/blob/main/tsdoc/index.html
+      title: TSDOC
 spec:
   type: other
   lifecycle: unknown
