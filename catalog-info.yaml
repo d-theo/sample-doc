@@ -8,6 +8,21 @@ metadata:
   links:
     - url: https://d-theo.github.io/sample-doc/
       title: TSDOC
+  namespace: Typescript Community
+  tags:
+    - typescript
+    - documentation
+relations:
+  - type: parentOf
+    target:
+      kind: "group"
+      namespace: "Typescript Community"
+      name: "Samples"
+  - type: dependsOn
+    target:
+      kind: "group"
+      namespace: "Typescript Community"
+      name: "Backstage infra"
 spec:
   type: other
   lifecycle: unknown
