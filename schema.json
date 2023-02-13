@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/d-theo/sample-doc/main/schema.json",
+  "$id": "https://json.schemastore.org/catalog-info.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
@@ -8,9 +8,18 @@
       "description": "A Component describes a software component. It is typically intimately linked to the source code that constitutes the component, and should be what a developer may regard a \"unit of software\", usually with a distinct deployable or linkable artifact.",
       "examples": [
         {
-          "apiVersion": "osp.org/v1alpha1",
-          "kind": "Library",
-          "metadata": "super metadata",
+          "apiVersion": "osp.com/v1alpha1",
+          "kind": "Component",
+          "metadata": {
+            "name": "LoremService",
+            "description": "Creates Lorems like a pro.",
+            "labels": {
+              "product_name": "Random value Generator"
+            },
+            "annotations": {
+              "docs": "https://github.com/..../tree/develop/doc"
+            }
+          },
           "spec": {
             "type": "service",
             "lifecycle": "production",
@@ -20,14 +29,14 @@
       ],
       "allOf": [
         {
-          "$ref": "https://raw.githubusercontent.com/d-theo/sample-doc/main/schema.json#/definitions/entity"
+          "$ref": "https://json.schemastore.org/catalog-info.json#/definitions/entity"
         },
         {
           "type": "object",
           "required": ["spec"],
           "properties": {
             "apiVersion": {
-              "enum": ["backstage.io/v1alpha1", "backstage.io/v1beta1"]
+              "enum": ["osp.com/v1alpha1"]
             },
             "kind": {
               "enum": ["Component"]
@@ -78,7 +87,6 @@
     "entity": {
       "type": "object",
       "required": ["apiVersion", "kind", "metadata"],
-      "additionalProperties": false,
       "properties": {
         "apiVersion": {
           "type": "string",
