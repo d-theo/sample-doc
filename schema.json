@@ -1,5 +1,5 @@
 {
-  "$id": "https://json.schemastore.org/catalog-info.json",
+  "$id": "https://raw.githubusercontent.com/d-theo/sample-doc/main/schema.json",
   "$schema": "http://json-schema.org/draft-07/schema#",
   "anyOf": [
     {
@@ -29,7 +29,7 @@
       ],
       "allOf": [
         {
-          "$ref": "https://json.schemastore.org/catalog-info.json#/definitions/entity"
+          "$ref": "https://raw.githubusercontent.com/d-theo/sample-doc/main/schema.json#/definitions/entity"
         },
         {
           "type": "object",
