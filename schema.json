@@ -1,0 +1,114 @@
+{
+  "$id": "https://json.schemastore.org/catalog-info.json",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "anyOf": [
+    {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "$id": "ComponentV1alpha1",
+      "description": "A Component describes a software component. It is typically intimately linked to the source code that constitutes the component, and should be what a developer may regard a \"unit of software\", usually with a distinct deployable or linkable artifact.",
+      "examples": [
+        {
+          "apiVersion": "osp.org/v1alpha1",
+          "kind": "Library",
+          "metadata": "super metadata",
+          "spec": {
+            "type": "service",
+            "lifecycle": "production",
+            "owner": "tools"
+          }
+        }
+      ],
+      "allOf": [
+        {
+          "$ref": "https://json.schemastore.org/catalog-info.json#/definitions/entity"
+        },
+        {
+          "type": "object",
+          "required": ["spec"],
+          "properties": {
+            "apiVersion": {
+              "enum": ["backstage.io/v1alpha1", "backstage.io/v1beta1"]
+            },
+            "kind": {
+              "enum": ["Component"]
+            },
+            "spec": {
+              "type": "object",
+              "required": ["type", "lifecycle", "owner"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "description": "The type of component.",
+                  "examples": ["service", "website", "library"],
+                  "minLength": 1
+                },
+                "lifecycle": {
+                  "type": "string",
+                  "description": "The lifecycle state of the component.",
+                  "examples": ["experimental", "production", "deprecated"],
+                  "minLength": 1
+                },
+                "owner": {
+                  "type": "string",
+                  "description": "An entity reference to the owner of the component.",
+                  "examples": ["artist-relations-team", "user:john.johnson"],
+                  "minLength": 1
+                },
+                "subcomponentOf": {
+                  "type": "string",
+                  "description": "An entity reference to another component of which the component is a part.",
+                  "minLength": 1
+                },
+                "dependsOn": {
+                  "type": "array",
+                  "description": "An array of references to other entities that the component depends on to function.",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "definitions": {
+    "entity": {
+      "type": "object",
+      "required": ["apiVersion", "kind", "metadata"],
+      "additionalProperties": false,
+      "properties": {
+        "apiVersion": {
+          "type": "string",
+          "description": "The version of specification format for this particular entity that this is written against.",
+          "minLength": 1,
+          "examples": ["backstage.io/v1alpha1", "my-company.net/v1", "1.0"]
+        },
+        "kind": {
+          "type": "string",
+          "description": "The high level entity type being described.",
+          "minLength": 1,
+          "examples": [
+            "API",
+            "Component",
+            "Domain",
+            "Group",
+            "Location",
+            "Resource",
+            "System",
+            "Template",
+            "User"
+          ]
+        },
+        "metadata": {
+          "type": "string",
+          "description": "Metadata about the entity.",
+          "examples": ["a lib that do http calls"]
+        }
+      }
+    }
+  },
+  "type": "object"
+}
